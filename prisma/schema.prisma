@@ -14,17 +14,22 @@ datasource db {
 }
 
 model User {
-  id         Int     @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   first_name String?
   last_name  String?
+  img        String?
   roll       Int?
   age        Int?
   grade      String?
-  courses    String?
+  department String?
+  createdAt  DateTime @default(now()) @db.Timestamp(0)
+  updatedAt  DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }
 
 model Employee {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
-  designation String
+  designation String   @db.VarChar(1000)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
 }

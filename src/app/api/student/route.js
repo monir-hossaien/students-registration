@@ -4,10 +4,11 @@ import {PrismaClient} from "@prisma/client";
 export async function POST(req,res) {
 
     try {
+        
         const reqBody = await req.json();
         const prisma = new PrismaClient();
 
-        let newUser = await prisma.User.create({
+        let newUser = await prisma.user.create({
             data:reqBody
 
         })
@@ -20,14 +21,14 @@ export async function POST(req,res) {
     }
 }
 
-export async function GET(req){
+export async function GET(req,res){
 
     try{
 
         //const reqBody = await req.json()
         const prisma = new PrismaClient();
 
-        const users = await prisma.User.findMany({
+        const users = await prisma.user.findMany({
 
         })
 
